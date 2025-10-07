@@ -19,9 +19,9 @@ def pregunta_10():
     table0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
 
     grouped = (table0
-               .groupby('c1')['c2']
-               .apply(lambda x: ':'.join(str(i) for i in sorted(x)))
-               .to_frame(name='c2'))
+                .groupby('c1')['c2']
+                .apply(lambda x: ':'.join(str(i) for i in sorted(x)))
+                .to_frame(name='c2'))
 
     return grouped
 

@@ -19,7 +19,7 @@ def pregunta_11():
      table0 = pd.read_csv('files/input/tbl1.tsv', sep='\t')
 
      return (table0.groupby('c0')['c4']
-               .apply(lambda x: ','.join(x))
+               .apply(lambda x: ','.join(sorted(x)))
                .reset_index())
 
 

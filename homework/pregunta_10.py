@@ -18,37 +18,35 @@ import pandas as pd
 def pregunta_10():
     table0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
 
-    
-
-
     grouped = (table0
                .groupby('c1')['c2']
-               .apply(lambda x: ':'.join(str(i) for i in sorted(x))))
+               .apply(lambda x: ':'.join(str(i) for i in sorted(x)))
+               .to_frame(name='c2'))
 
     return grouped
 
 
-import pandas as pd
+# import pandas as pd
 
-# 1️⃣ defines la función fuera
-def unir_y_ordenar(valores):
-    """
-    Recibe una Serie (columna c2 de cada grupo)
-    y devuelve los valores ordenados y unidos con ':'
-    """
-    return ':'.join(str(i) for i in sorted(valores))
+# # 1️⃣ defines la función fuera
+# def unir_y_ordenar(valores):
+#     """
+#     Recibe una Serie (columna c2 de cada grupo)
+#     y devuelve los valores ordenados y unidos con ':'
+#     """
+#     return ':'.join(str(i) for i in sorted(valores))
 
-# 2️⃣ usas la función dentro del apply
-def pregunta_10_alternativa():
-    table0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+# # 2️⃣ usas la función dentro del apply
+# def pregunta_10_alternativa():
+#     table0 = pd.read_csv('files/input/tbl0.tsv', sep='\t')
 
-    result = (
-        table0.groupby('c1')['c2']
-        .apply(unir_y_ordenar)        # 👈 aquí va la función
-        .to_frame(name='c2')
-    )
+#     result = (
+#         table0.groupby('c1')['c2']
+#         .apply(unir_y_ordenar)        # 👈 aquí va la función
+#         .to_frame(name='c2')
+#     )
 
-    return result
+#     return result
 
 
 
